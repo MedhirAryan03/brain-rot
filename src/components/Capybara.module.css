@@ -271,35 +271,42 @@
     }
 }
 
-/* Message Bubble */
+/* Message Bubble - Aesthetic Glass Mode */
 .speechBubble {
     position: absolute;
-    top: -60px;
-    right: -80px;
-    background: white;
-    color: #333;
-    padding: 8px 12px;
-    border-radius: 12px;
-    font-size: 0.8rem;
-    font-weight: 500;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    top: -75px;
+    left: 10%;
+    background: rgba(255, 255, 255, 0.15);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    color: white;
+    padding: 10px 15px;
+    border-radius: 16px;
+    font-size: 0.85rem;
+    font-weight: 600;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
     opacity: 0;
-    transform: translateY(10px) scale(0.8);
-    animation: popIn 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards;
+    transform: translateY(15px) scale(0.8);
+    animation: popIn 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards;
     pointer-events: none;
     z-index: 200;
-    width: 140px;
+    width: 160px;
     text-align: center;
+    line-height: 1.3;
 }
 
 .speechBubble::after {
     content: '';
     position: absolute;
     bottom: -6px;
-    left: 20px;
-    width: 12px;
-    height: 12px;
-    background: white;
+    left: 40px;
+    width: 10px;
+    height: 10px;
+    background: rgba(40, 40, 40, 0.2);
+    border-right: 1px solid rgba(255, 255, 255, 0.2);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+    backdrop-filter: blur(12px);
     transform: rotate(45deg);
 }
 
