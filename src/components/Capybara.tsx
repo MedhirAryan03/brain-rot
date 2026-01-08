@@ -45,62 +45,57 @@ export default function Capybara({ isSleeping, isDone, progress }: CapybaraProps
     const sinkDepth = 20 + (progress * 50); // sinks 50px deeper
 
     return (
-        <div className={styles.container} onClick={handlePet}>
-            {/* Messages */}
+        <div style={{ position: 'relative' }}>
+            {/* Messages - Now outside the clipped container */}
             {message && <div className={styles.speechBubble}>{message}</div>}
 
-            {/* Floating Hearts */}
-            {hearts.map(heart => (
-                <div key={heart.id} className={styles.heart}>❤️</div>
-            ))}
+            <div className={styles.container} onClick={handlePet}>
+                {/* Floating Hearts */}
+                {hearts.map(heart => (
+                    <div key={heart.id} className={styles.heart}>❤️</div>
+                ))}
 
-            <div
-                className={styles.capybara}
-                style={{ top: `${sinkDepth}px` }} // Dynamic sinking
-            >
-
-                {/* Yuzu reward appears when done */}
-                {isDone && (
-                    <div className={styles.yuzu}>
-                        <div className={styles.yuzuLeaf} />
+                <div
+                    className={styles.capybara}
+                    style={{ top: `${sinkDepth}px` }} // Dynamic sinking
+                >
+                    {/* ... (rest of the capybara parts) */}
+                    {isDone && (
+                        <div className={styles.yuzu}>
+                            <div className={styles.yuzuLeaf} />
+                        </div>
+                    )}
+                    {!isDone && <div className={styles.towel} />}
+                    {!isSleeping && (
+                        <div className={styles.duckie}>
+                            <div className={styles.duckieHead} />
+                            <div className={styles.duckieBeak} />
+                        </div>
+                    )}
+                    <div className={styles.head}>
+                        <div className={styles.ear} />
+                        <div style={{
+                            height: isSleeping ? '2px' : '8px',
+                            borderRadius: isSleeping ? '0' : '50%',
+                            transform: isSleeping ? 'rotate(0deg)' : 'none'
+                        }}
+                            className={styles.eye}
+                        />
+                        <div className={styles.snout} />
+                        <div className={styles.nose} />
                     </div>
-                )}
-
-                {/* Towel for relaxation mode (only when not "drowning" too much or just swimming) */}
-                {!isDone && <div className={styles.towel} />}
-
-                {/* Duckie Companion */}
-                {!isSleeping && (
-                    <div className={styles.duckie}>
-                        <div className={styles.duckieHead} />
-                        <div className={styles.duckieBeak} />
-                    </div>
-                )}
-
-                <div className={styles.head}>
-                    <div className={styles.ear} />
-                    <div style={{
-                        height: isSleeping ? '2px' : '8px',
-                        borderRadius: isSleeping ? '0' : '50%',
-                        transform: isSleeping ? 'rotate(0deg)' : 'none'
-                    }}
-                        className={styles.eye}
-                    />
-                    <div className={styles.snout} />
-                    <div className={styles.nose} />
+                    <div className={styles.body} />
                 </div>
-                <div className={styles.body} />
-            </div>
 
-            <div className={styles.water} style={{ height: isDone ? '45%' : '40%' }}>
-                {/* Bubbles */}
-                {!isSleeping && (
-                    <>
-                        <div className={styles.bubble} style={{ left: '20%', width: '10px', height: '10px', animationDelay: '0s' }} />
-                        <div className={styles.bubble} style={{ left: '70%', width: '8px', height: '8px', animationDelay: '1.5s' }} />
-                        <div className={styles.bubble} style={{ left: '50%', width: '12px', height: '12px', animationDelay: '3s' }} />
-                    </>
-                )}
+                <div className={styles.water} style={{ height: isDone ? '45%' : '40%' }}>
+                    {!isSleeping && (
+                        <>
+                            <div className={styles.bubble} style={{ left: '20%', width: '10px', height: '10px', animationDelay: '0s' }} />
+                            <div className={styles.bubble} style={{ left: '70%', width: '8px', height: '8px', animationDelay: '1.5s' }} />
+                            <div className={styles.bubble} style={{ left: '50%', width: '12px', height: '12px', animationDelay: '3s' }} />
+                        </>
+                    )}
+                </div>
             </div>
         </div>
     );
