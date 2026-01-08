@@ -10,6 +10,14 @@ export const metadata: Metadata = {
   description: "A cute capybara timer to help you focus or cook eggs.",
 };
 
+export const viewport = {
+  width: "device-width",
+  initialScale: 1,
+  maximumScale: 1,
+  userScalable: false,
+  themeColor: "#2c5364",
+};
+
 export default function RootLayout({
   children,
 }: Readonly<{
