@@ -37,6 +37,15 @@ body {
   font-family: var(--font-main);
   overflow-x: hidden;
   overflow-y: auto;
+  position: relative;
+}
+
+/* Animated Background Particles */
+.particle {
+  position: fixed;
+  pointer-events: none;
+  opacity: 0.3;
+  z-index: 0;
 }
 
 /* Utilities */
@@ -93,4 +102,43 @@ button {
     opacity: 0;
     transform: translateY(-40px) scale(2);
   }
+}
+
+@keyframes particleFloat {
+  0% {
+    transform: translateY(100vh) translateX(0) rotate(0deg);
+    opacity: 0;
+  }
+
+  10% {
+    opacity: 0.3;
+  }
+
+  90% {
+    opacity: 0.3;
+  }
+
+  100% {
+    transform: translateY(-100px) translateX(100px) rotate(360deg);
+    opacity: 0;
+  }
+}
+
+@keyframes confettiFall {
+  0% {
+    transform: translateY(-10vh) rotate(0deg);
+  }
+
+  100% {
+    transform: translateY(110vh) rotate(720deg);
+  }
+}
+
+.confetti {
+  position: fixed;
+  top: -10px;
+  width: 10px;
+  height: 10px;
+  z-index: 500;
+  pointer-events: none;
 }
