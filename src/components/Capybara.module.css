@@ -1,0 +1,311 @@
+/* Existing styles */
+.container {
+    position: relative;
+    width: 300px;
+    height: 300px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    /* Mask for water */
+    border-radius: 50%;
+    /* Circle frame */
+    background: rgba(255, 255, 255, 0.05);
+    box-shadow: inset 0 0 20px rgba(0, 0, 0, 0.2);
+    cursor: pointer;
+    /* Interaction hint */
+    user-select: none;
+    transition: all 0.3s ease;
+}
+
+.capybara {
+    position: relative;
+    z-index: 10;
+    animation: float 4s ease-in-out infinite;
+    transition: transform 0.2s ease, top 0.5s ease;
+    top: 20px;
+}
+
+.capybara:active {
+    transform: scale(0.95);
+}
+
+.head {
+    width: 120px;
+    height: 90px;
+    background-color: var(--color-primary);
+    border-radius: 40% 50% 45% 45%;
+    /* Organic shape */
+    position: relative;
+}
+
+.snout {
+    width: 50px;
+    height: 45px;
+    background-color: var(--color-primary-dark);
+    position: absolute;
+    bottom: 0px;
+    right: -5px;
+    border-radius: 30% 50% 40% 40%;
+    opacity: 0.3;
+    /* Shadow for snout */
+}
+
+.nose {
+    width: 14px;
+    height: 8px;
+    background-color: #3e2723;
+    border-radius: 40%;
+    position: absolute;
+    right: 5px;
+    bottom: 55%;
+}
+
+.eye {
+    width: 8px;
+    height: 8px;
+    background-color: #000;
+    border-radius: 50%;
+    position: absolute;
+    top: 35%;
+    right: 40px;
+    animation: blink 4s infinite;
+}
+
+.ear {
+    width: 20px;
+    height: 20px;
+    background-color: var(--color-primary);
+    border-radius: 50% 50% 0 50%;
+    position: absolute;
+    top: 5px;
+    left: 20px;
+    transform: rotate(-10deg);
+    box-shadow: inset -2px -2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.body {
+    width: 140px;
+    height: 100px;
+    background-color: var(--color-primary);
+    border-radius: 45% 45% 50% 50%;
+    position: absolute;
+    top: 60px;
+    left: -10px;
+    z-index: -1;
+}
+
+.water {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 40%;
+    background: linear-gradient(to bottom, var(--color-water), var(--color-water-light));
+    opacity: 0.8;
+    z-index: 20;
+    transition: height 0.5s ease;
+}
+
+.towel {
+    width: 50px;
+    height: 15px;
+    background-color: #fff;
+    border-radius: 8px;
+    position: absolute;
+    top: -8px;
+    left: 35px;
+    transform: rotate(-5deg);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.yuzu {
+    width: 30px;
+    height: 30px;
+    background-color: var(--color-yuzu);
+    border-radius: 50%;
+    position: absolute;
+    top: -20px;
+    left: 45px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    animation: bob 3s ease-in-out infinite;
+}
+
+.yuzuLeaf {
+    width: 10px;
+    height: 6px;
+    background-color: #4CAF50;
+    border-radius: 0 50% 0 50%;
+    position: absolute;
+    top: 2px;
+    right: 6px;
+}
+
+/* Animations */
+@keyframes blink {
+
+    0%,
+    96%,
+    100% {
+        transform: scaleY(1);
+    }
+
+    98% {
+        transform: scaleY(0.1);
+    }
+}
+
+@keyframes float {
+
+    0%,
+    100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(5px);
+    }
+}
+
+@keyframes bob {
+
+    0%,
+    100% {
+        transform: translateY(0) rotate(5deg);
+    }
+
+    50% {
+        transform: translateY(-3px) rotate(-5deg);
+    }
+}
+
+/* Heart animation for petting */
+.heart {
+    position: absolute;
+    font-size: 24px;
+    pointer-events: none;
+    animation: floatHeart 1.5s ease-out forwards;
+    z-index: 100;
+    left: 50%;
+    top: 40%;
+}
+
+@keyframes floatHeart {
+    0% {
+        transform: translate(-50%, 0) scale(0.5);
+        opacity: 1;
+    }
+
+    50% {
+        transform: translate(-50%, -50px) scale(1.2);
+        opacity: 0.8;
+        color: #ff4081;
+        text-shadow: 0 0 10px rgba(255, 64, 129, 0.5);
+    }
+
+    100% {
+        transform: translate(-50%, -100px) scale(1.5);
+        opacity: 0;
+    }
+}
+
+/* Rubber Duckie */
+.duckie {
+    width: 25px;
+    height: 20px;
+    background: #FFEB3B;
+    border-radius: 50% 50% 40% 40%;
+    position: absolute;
+    bottom: 0px;
+    left: -20px;
+    animation: bob 2s infinite reverse;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    z-index: 50;
+}
+
+.duckieHead {
+    width: 12px;
+    height: 12px;
+    background: #FFEB3B;
+    border-radius: 50%;
+    position: absolute;
+    top: -8px;
+    left: 2px;
+}
+
+.duckieBeak {
+    width: 6px;
+    height: 4px;
+    background: #FF9800;
+    border-radius: 2px;
+    position: absolute;
+    top: 4px;
+    left: -2px;
+}
+
+/* Bubbles */
+.bubble {
+    position: absolute;
+    background: rgba(255, 255, 255, 0.4);
+    border-radius: 50%;
+    animation: rise 4s infinite ease-in;
+    z-index: 25;
+}
+
+@keyframes rise {
+    0% {
+        transform: translateY(0) scale(0.5);
+        opacity: 0;
+    }
+
+    20% {
+        opacity: 0.8;
+    }
+
+    100% {
+        transform: translateY(-80px) scale(1);
+        opacity: 0;
+    }
+}
+
+/* Message Bubble */
+.speechBubble {
+    position: absolute;
+    top: -60px;
+    right: -80px;
+    background: white;
+    color: #333;
+    padding: 8px 12px;
+    border-radius: 12px;
+    font-size: 0.8rem;
+    font-weight: 500;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    opacity: 0;
+    transform: translateY(10px) scale(0.8);
+    animation: popIn 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards;
+    pointer-events: none;
+    z-index: 200;
+    width: 140px;
+    text-align: center;
+}
+
+.speechBubble::after {
+    content: '';
+    position: absolute;
+    bottom: -6px;
+    left: 20px;
+    width: 12px;
+    height: 12px;
+    background: white;
+    transform: rotate(45deg);
+}
+
+@keyframes popIn {
+    to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
