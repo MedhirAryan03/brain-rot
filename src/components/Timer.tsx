@@ -173,7 +173,8 @@ export default function Timer({ onStateChange }: TimerProps) {
         return () => {
             if (timerRef.current) clearInterval(timerRef.current);
         };
-    }, [isRunning, timeLeft]); // Depends on timeLeft to trigger 0 check inside
+        // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, [isRunning, timeLeft]);
 
     const renderCategory = (cat: Category, title: string) => (
         <div style={{ width: '100%', marginBottom: '1rem' }}>

@@ -11,7 +11,7 @@ interface CapybaraProps {
     theme?: 'day' | 'night' | 'sunset';
 }
 
-export default function Capybara({ isSleeping, isDone, progress, theme = 'day' }: CapybaraProps) {
+export default function Capybara({ isSleeping, isDone, progress }: CapybaraProps) {
     const [hearts, setHearts] = useState<{ id: number; x: number; y: number }[]>([]);
     const [message, setMessage] = useState<string | null>(null);
     const [messageTimer, setMessageTimer] = useState<NodeJS.Timeout | null>(null);
